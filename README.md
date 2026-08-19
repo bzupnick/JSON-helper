@@ -1,6 +1,9 @@
 # JSON Helper
 
-A tiny, dependency-light JSON prettifier + tree viewer that runs entirely in your
+<img width="1502" height="791" alt="image" src="https://github.com/user-attachments/assets/5a997b5f-a002-4512-b341-95e1c9be2684" />
+
+
+A tiny, no-dep JSON prettifier + tree viewer that runs entirely in your
 browser. Paste messy JSON on the left, hit **Format**, and get a clean, colorized,
 collapsible tree on the right. Your work is organized into **files** that auto-save
 locally, so nothing is lost between sessions.
