@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JSON Helper</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="header-row">
+      <div>
+        <h1>JSON Helper <span style="color:var(--muted);font-weight:400;">· mini</span></h1>
+        <p>Paste or edit JSON on the left, then hit <b>→ Format</b> to prettify it and build the collapsible tree on the right.</p>
+      </div>
+      <div class="hint">Each file auto-saves as you edit. Switch files in the Files panel on the left; changes stick.</div>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <!-- FAR LEFT: file explorer -->
+    <aside class="panel">
+      <div class="panel-head">
+        <span class="panel-title">Files</span>
+        <button class="btn-mini" id="newFile" title="Create a new blank file">Create file</button>
+      </div>
+      <div class="snap-list" id="snapList"></div>
+      <div class="snap-foot">
+        <div class="snap-foot-btns">
+          <button class="btn-mini" id="importSnap" title="Create a file from a shared code">Import</button>
+        </div>
+        <span id="snapMsg" class="snap-msg"></span>
+      </div>
+    </aside>
+
+    <!-- LEFT: editable JSON -->
+    <section class="panel">
+      <div class="panel-head">
+        <span class="panel-title">JSON <small>paste &amp; edit here</small></span>
+        <span>
+          <button class="btn-mini" id="copyLeft" title="Copy this JSON to the clipboard">Copy</button>
+          <button class="btn-mini" id="prettifyLeft" title="Prettify this pane only (does not build the tree)">Prettify</button>
+        </span>
+      </div>
+      <div class="panel-body">
+        <div class="editor">
+          <div class="gutter" id="gutter"></div>
+          <div class="code-wrap">
+            <pre class="highlight" id="highlight"></pre>
+            <textarea id="left" class="code-input" wrap="off" spellcheck="false" placeholder="Paste or type JSON here, then press → Format"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="status" id="leftStatus"></div>
+    </section>
+
+    <!-- CENTER: format action -->
+    <div class="center">
+      <button class="arrow-btn" id="formatBtn" title="Prettify the JSON and build the tree on the right">→</button>
+      <div class="arrow-label">format</div>
+    </div>
+
+    <!-- RIGHT: collapsible tree -->
+    <section class="panel">
+      <div class="panel-head">
+        <span class="panel-title">Tree <small>read-only</small></span>
+        <span>
+          <button class="btn-mini" id="expandAll" title="Expand every node">Expand all</button>
+          <button class="btn-mini" id="collapseAll" title="Collapse every node">Collapse all</button>
+          <button class="btn-mini" id="copyRight" title="Copy this JSON to the clipboard">Copy</button>
+          <button class="btn-mini" id="exportSnap" title="Copy this JSON as a shareable base64 code">Export</button>
+        </span>
+      </div>
+      <div class="panel-body">
+        <div class="tree" id="tree"></div>
+      </div>
+      <div class="status" id="rightStatus"></div>
+    </section>
+  </div>
+
+  <script src="jsonrepair.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
